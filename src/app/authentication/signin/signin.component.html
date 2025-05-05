@@ -1,0 +1,135 @@
+<div class="auth-container">
+  <div class="row auth-main">
+    <div class="col-lg-7 col-md-6 col-sm-6 auth-form-section">
+      <div class="form-section">
+        <div class="auth-wrapper login-box">
+          <!-- <h6 class="welcome-msg"> Welcome to Smart</h6>
+          <p class="auth-signup-text text-muted">Need an account?
+            <a routerLink="/authentication/signup"
+              class="sign-up-link">Sign Up
+            </a>
+          </p> -->
+          <!-- <div class="d-flex justify-content-between lbl-alert mb-3">
+            <div>
+              <button mat-stroked-button color="primary" type="button" (click)="adminSet();">Admin</button>
+            </div>
+            <div>
+              <button mat-stroked-button color="warn" type="button" (click)="teacherSet();">Teacher</button>
+            </div>
+            <div>
+              <button mat-stroked-button color="accent" type="button" (click)="studentSet();">Student</button>
+            </div>
+          </div> -->
+          <h4 class="login-title" style="font-size: 27px;">Sign in</h4>
+          <h6 class="login-title" style="font-size: 15px;color: #313957;">Sign in to your account to start using Rental Portal</h6>
+          <form class="validate-form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
+                <label for="">Email</label>
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <!-- <mat-label>Username</mat-label> -->
+                  <input matInput formControlName="username" placeholder="Example@email.com"/>
+                  <!-- <mat-icon class="material-icons-outlined color-icon p-3" matSuffix>face</mat-icon> -->
+                  @if (authForm.get('username')?.hasError('required')) {
+                  <mat-error>
+                    Email is required
+                  </mat-error>
+                  }
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-12col-lg-12 col-md-12 col-sm-12 ">
+                <label for="">Password</label>
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <!-- <mat-label>Password</mat-label> -->
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="At least 8 characters">
+                  <!-- <mat-icon class="material-icons-outlined pwd-toggle p-3" matSuffix (click)="hide = !hide">
+                    {{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+                  @if (authForm.get('password')?.hasError('required')) {
+                  <mat-error>
+                    Password is required
+                  </mat-error>
+                  }
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="container-auth-form-btn">
+              <div style="text-align:center">
+                <button mat-flat-button style="background-color: #0F6CBD;border-radius: 4px;height: 44px !important;" [class.auth-spinner]="loading" [disabled]="loading"
+                  class="auth-form-btn" [disabled]="!authForm.valid " type="submit">Login</button>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mb-3 mt-3">
+              <!-- <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value=""> Remember me
+                  <span class="form-check-sign">
+                    <span class="check"></span>
+                  </span>
+                </label>
+              </div> -->
+              <p class="mb-0" style="font-size: 13px;">Dont have an account?</p>
+              <a class="txt1 ps-2" style="font-weight: 600;" routerLink="/authentication/forgot-password">SignUp</a>
+            </div>
+            <!-- @if (error) {
+            <div class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            } -->
+          </form>
+          
+          <!-- <h1>Sign In</h1>
+          <p class="subtitle">
+            Sign in to your account to start using Rental Portal
+          </p>
+
+          <form>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Example@email.com"
+            />
+    
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="At least 8 characters"
+            />
+    
+            <button class="sign-in-btn">Sign in</button>
+          </form>
+          <p class="signup-link">Don’t have an account? <a routerLink="/dashboard">Sign Up</a></p> -->
+
+          <h6 class="social-login-title">OR</h6>
+          <!-- <ul class="list-unstyled social-icon mb-0 mt-3">
+            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded">
+                <i class="fab fa-google"></i>
+              </a></li>
+            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded flex-c-m">
+                <i class="fab fa-facebook-f"></i>
+              </a></li>
+            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded">
+                <i class="fab fa-twitter"></i>
+              </a></li>
+            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded">
+                <i class="fab fa-linkedin-in"></i>
+              </a></li>
+          </ul> -->
+          <button class="microsoft-btn">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+              alt="Microsoft Logo"
+            />
+            Sign in with Microsoft
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5 col-md-6 col-sm-6 px-0 d-none d-sm-block">
+      <div class="left-img" style="background-image: url(assets/images/login/login-image.jpg);">
+      </div>
+    </div>
+    
+  </div>
+</div>

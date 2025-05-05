@@ -1,0 +1,140 @@
+<section class="content">        
+    <div class="component-header">
+        <h4 class="c-h4">
+            Site Master
+        </h4>
+        <button class="component-header-button" (click)="dialog()">
+            <div class="d-flex">
+                <i class="material-icons">add</i>
+                <span class="icon-name">Add New</span>
+                </div>
+            
+        </button>
+    </div>
+
+    <div class="content-block">
+
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div style="border-bottom: 1px solid #e0e0e0;">
+                    <div class="header">
+                        <h2> All Sites</h2>
+                    </div>
+                    <div class="filter-div">
+                        <div class="col-4 search-bar" >
+                            <i class="material-icons search-icon" >search</i>
+                            <input type="search" placeholder="Search" class="search-input" >
+                        </div>
+
+                        <div class="d-flex gap-3">
+                            <button type="button" class="btn btn-outline-primary export-btn" >
+                                <div class="d-flex">
+                                    <!-- <i class="material-icons">add</i> -->
+                                    <img src="assets/images/tms-icon/excel.svg" alt="Edit" width="20" height="20"/>
+                                    <span class="icon-name ps-1"> Export To Excel</span>
+                                </div>
+                                
+                            </button>
+                            <button type="button" class="btn btn-outline-primary export-btn">
+                                <div class="d-flex">
+                                    <!-- <i class="material-icons">add</i> -->
+                                    <img src="assets/images/tms-icon/pdf.svg" alt="Edit" width="20" height="20"/>
+                                    <span class="icon-name ps-1"> Pdf</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="body table-responsive">
+                <table mat-table [dataSource]="dataSource3" class="w-100">
+
+                    <!-- No Column -->
+                    <ng-container matColumnDef="no">
+                    <th mat-header-cell *matHeaderCellDef class="text-nowrap"> Sr. No. </th>
+                    <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+                    </ng-container>
+
+                    <!-- No Column -->
+                    <ng-container matColumnDef="siteId">
+                    <th mat-header-cell *matHeaderCellDef class="text-nowrap"> Site Id </th>
+                    <td mat-cell *matCellDef="let element"> {{element.siteId}} </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="siteName">
+                    <th mat-header-cell *matHeaderCellDef> Site Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.siteName}} </td>
+                    </ng-container>
+
+                    <!-- Mobile Column -->
+                    <ng-container matColumnDef="legalEntity">
+                        <th mat-header-cell *matHeaderCellDef> Legal Entity </th>
+                        <td mat-cell *matCellDef="let element"> {{element.legalEntity}} </td>
+                    </ng-container>
+
+                    <!-- Gender Column -->
+                    <ng-container matColumnDef="erp">
+                    <th mat-header-cell *matHeaderCellDef> Erp </th>
+                    <td mat-cell *matCellDef="let element"> {{element.erp}} </td>
+                    </ng-container>
+
+                    <!-- Email Column -->
+                    <ng-container matColumnDef="calendarId">
+                    <th mat-header-cell *matHeaderCellDef class="text-nowrap"> Calendar Id </th>
+                    <td mat-cell *matCellDef="let element"> {{element.calendarId}} </td>
+                    </ng-container>
+                    <!-- Address Column -->
+                    <ng-container matColumnDef="calendarName">
+                    <th mat-header-cell *matHeaderCellDef> Calendar Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.calendarName}} </td>
+                    </ng-container>
+                    
+                    <!-- Salary Column -->
+                    <ng-container matColumnDef="priority">
+                    <th mat-header-cell *matHeaderCellDef> Priority </th>
+                    <td mat-cell *matCellDef="let element"> 
+                        <div class="priority-container">
+                            <img *ngIf="element.priority === 'High'; else lowIcon"src="assets/images/tms-icon/high.svg" width="20" height="20" alt="High"/>
+                            <ng-template #lowIcon>
+                            <img src="assets/images/tms-icon/low.svg" width="20" height="20" alt="Low" />
+                            </ng-template>
+                            <span>{{ element.priority }}</span>
+                        </div>    
+                    </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element"> 
+
+                        <div class="actions-container">
+                            <button class="action-btn ps-1 pe-1">
+                                <div class="demo-google-material-icon" style="display: flex;">
+                                    <i class="material-icons">mode_edit</i>
+                                    <!-- <img src="assets/images/tms-icon/edit.svg" alt="View" width="20" height="20" /> -->
+                                </div>
+                            </button>
+                            <button class="action-btn">
+                                Generate QR Tags
+                            </button>
+                            <button class="action-btn">
+                                View Assets
+                            </button>
+                        </div>
+
+                    </td>
+                    </ng-container>
+
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</section>
